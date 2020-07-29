@@ -1,0 +1,31 @@
+.formArea {
+    margin: 40px 0px 0px 30px;
+    
+    h3 {
+        margin-bottom: 20px
+    }
+}
+
+.errorsArea {
+    margin: 85px 0 0 40px;
+    position: relative;
+
+    .fname, .lname, .eml, .pwd, .cpwd {
+        position: absolute;
+        left: 0px;
+        top: 4px;
+        width: max-content;
+    }
+    .lname {
+        top: 60px;
+    }
+    .eml {
+        top: 114px;
+    }
+    .pwd {
+        top: 170px;
+    }
+    .cpwd {
+        top: 230px;
+    }
+}
