@@ -18,6 +18,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderService } from './services/loader.service';
 
 import { ChartsModule } from 'ng2-charts';
+import { CheckSessionComponent } from './check-session/check-session.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ChartsModule } from 'ng2-charts';
     RegistrationComponent,
     TwoFaVerificationComponent,
     DashboardComponent,
-    LoaderComponent
+    LoaderComponent,
+    CheckSessionComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { LoaderService } from '../services/loader.service';
+import { ToastrService } from 'ngx-toastr';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +34,11 @@ export class DashboardComponent implements OnInit {
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
   ];
-  constructor() { }
+  constructor(
+    private userService:UserService,
+    private loaderService:LoaderService,
+    private toastr:ToastrService,
+  private router:Router) { }
 
   ngOnInit() {
   }
@@ -54,6 +63,17 @@ export class DashboardComponent implements OnInit {
       (Math.random() * 100),
       40];
     this.barChartData[0].data = data;
+  }
+
+  logout() {
+    this.userService.logout("").pipe(first()).subscribe(
+      (resp) => {
+        this.router.navigate(['/login']);
+      },
+      (err) => {
+
+      }
+    )
   }
 
 }
